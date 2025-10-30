@@ -5,13 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rasha"
     tools:context=".MainActivity">
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="258dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="96dp"
         android:entries="@array/cityArray"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="31dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
