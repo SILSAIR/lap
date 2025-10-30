@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string-array name="cityArray">
+        <item>Nablus</item>
+        <item>Ramallah</item>
+        <item>Jericho</item>
+        <item>Bethlehem</item>
+        <item>Hebron</item>
+    </string-array>
 </resources>
