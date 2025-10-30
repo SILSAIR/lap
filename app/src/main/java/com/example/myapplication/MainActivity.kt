@@ -8,6 +8,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -31,10 +32,16 @@ class MainActivity : AppCompatActivity() {
                 return position != 0
             }
 
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent) as TextView
+                view.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                return view
+            }
+
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
-                    view.setTextColor(resources.getColor(android.R.color.darker_gray))
+                    view.setTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
                 }
                 return view
             }
