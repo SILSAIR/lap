@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 class LoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.loading)
+        setContentView(R.layout.activity_loading)
 
         Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-        }, 3000) // 3000 is the delayed time in milliseconds
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 2000) // 2 second delay
     }
 }
