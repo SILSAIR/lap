@@ -8,29 +8,14 @@
     android:background="@drawable/rasha"
     tools:context=".MainActivity">
 
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="258dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/rounded_spinner_background"
-        android:popupBackground="@drawable/rounded_spinner_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
-        android:layout_width="299dp"
-        android:layout_height="907dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="300dp"
+        android:layout_height="1053dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3"
-        app:layout_constraintVertical_bias="0.476">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,6 +25,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
+                android:layout_marginTop="200dp"
                 android:background="@drawable/image_border"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
@@ -75,11 +61,11 @@
                 android:textColor="#763038" />
 
             <ImageView
+                android.padding="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/image_border"
-                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/mill" />
 
@@ -132,5 +118,24 @@
                 android:textColor="#763038" />
         </LinearLayout>
     </ScrollView>
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:background="@drawable/rounded_spinner_background"
+        android:popupBackground="@drawable/rounded_spinner_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
