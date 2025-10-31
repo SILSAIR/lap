@@ -8,134 +8,123 @@
     android:background="@drawable/rasha"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="300dp"
-        android:layout_height="1053dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="255dp"
+        android:layout_height="30dp"
+        android:background="#8B0000"
+        android:popupBackground="#8B0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        android:layout_marginTop="16dp"
+        android:gravity="end"/>
+
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:gravity="center">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="182dp"
-                android:layout_marginTop="200dp"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
                 android:background="@drawable/image_border"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/church" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Bethlehem\nChurch of the Nativity"
                 android:textColor="#763038" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
                 android:background="@drawable/image_border"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/heb" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Hebron\n Glass &amp; Ceramics Shops"
                 android:textColor="#763038" />
 
             <ImageView
-                android.padding="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
                 android:background="@drawable/image_border"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/mill" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Ramallah\nMillennium Hotel"
                 android:textColor="#763038" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
                 android:background="@drawable/image_border"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/tower" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Nablus\nClock Tower"
                 android:textColor="#763038" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
                 android:background="@drawable/image_border"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/pool" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Jericho\nElisha Spring Fountain"
                 android:textColor="#763038" />
         </LinearLayout>
     </ScrollView>
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="350dp"
-        android:layout_height="62dp"
-        android:background="@drawable/rounded_spinner_background"
-        android:popupBackground="@drawable/rounded_spinner_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.014" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
