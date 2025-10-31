@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -34,14 +35,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent) as TextView
-                view.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                // Color for the selected item shown in the spinner
+                view.setTextColor(Color.WHITE)
                 return view
             }
 
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
+                    // Color for the "City" hint in the dropdown
                     view.setTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
+                } else {
+                    // Color for the other items in the dropdown
+                    view.setTextColor(Color.WHITE)
                 }
                 return view
             }
