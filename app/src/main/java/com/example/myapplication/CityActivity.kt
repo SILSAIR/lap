@@ -91,7 +91,7 @@ class CityActivity : AppCompatActivity() {
                     Place(R.drawable.cinema_r, "iCON Cinema – iCON Mall\n" +
                             "Address: Third Floor, iCON Mall, Surda Main Street, Ramallah, State of Palestine."),
                     Place(R.drawable.cinema_r2, "Palestine Trade tower\n" +
-                            "Address: Al‑Ersal Street, Ramallah, State of Palestine."),
+                            "Address: Al‑Ersal Street, Ramallah, State of Palestine.")
                 )
                 "Activities" -> listOf(
                     Place(R.drawable.ignit, "IGNITE Palestine\n" +
@@ -113,62 +113,60 @@ class CityActivity : AppCompatActivity() {
             }
             "Nablus" -> when (category) {
                 "Parks" -> listOf(
-                    Place(R.drawable.logo, "Example Park 1"),
-                    Place(R.drawable.logo, "Example Park 2"),
-                    Place(R.drawable.logo, "Example Park 3")
+                    Place(R.drawable.np1, "Nablus Park\nMount Ebal about 4 km from the Old City 3.9"),
+                    Place(R.drawable.np2, "Sama Nablus Park\nMount Ebal, Nablus 4.0"),
+                    Place(R.drawable.np3, "Family Park\nBeginning of Rafidia - Al Muntazah Street4.0")
                 )
                 "Hotels" -> listOf(
-                    Place(R.drawable.hesham, "Hesham Palace"),
-                    Place(R.drawable.logo, "Example Hotel 2"),
-                    Place(R.drawable.logo, "Example Hotel 3")
+                    Place(R.drawable.nh1, "Golden Rose Hotel\nRafidia near An-Najah University campus 3.8"),
+                    Place(R.drawable.nh2, "Royal Suiets Hotel\nRafidya St. Nablus 4.3"),
+                    Place(R.drawable.nh3, "Golden Tree Hotel\nBait Wazan, Nablus 4.3")
                 )
                 "Restaurants" -> listOf(
-                    Place(R.drawable.logo, "Example Restaurant 1"),
-                    Place(R.drawable.logo, "Example Restaurant 2"),
-                    Place(R.drawable.logo, "Example Restaurant 3")
+                    Place(R.drawable.rn1, "Alf Layla W Layla\n Nihayat Sharie Tunis, Nablus 4.1"),
+                    Place(R.drawable.rn2, "Tanoreen restaurant\nNablus - Tunis Street - Opposite Umm Salama Mosque 4.0"),
+                    Place(R.drawable.rn3, "W Restaurant\nEnd of Tunis Street 3.9")
                 )
                 "Cafes" -> listOf(
-                    Place(R.drawable.logo, "Example Cafe 1"),
-                    Place(R.drawable.logo, "Example Cafe 2"),
-                    Place(R.drawable.logo, "Example Cafe 3")
+                    Place(R.drawable.cn1, "Veranda Cafe & Cultural Space\nRafeedia St., Nablus 4.4"),
+                    Place(R.drawable.cn2, "Cedarz Gelato & Coffee House\nRafedia Opposite Korean" +
+                            " Institute- Al Najah Academy, Nablus 5.0"),
+                    Place(R.drawable.cn3, " Nosha Cafe")
                 )
                 "Religious Sites" -> listOf(
-                    Place(R.drawable.logo, "Example Site 1"),
-                    Place(R.drawable.logo, "Example Site 2"),
-                    Place(R.drawable.logo, "Example Site 3")
+                    // Placeholder for Nablus Religious Sites
                 )
                 "Special Sites" -> listOf(
-                    Place(R.drawable.logo, "Example Special Site 1"),
-                    Place(R.drawable.logo, "Example Special Site 2"),
-                    Place(R.drawable.logo, "Example Special Site 3")
+                    Place(R.drawable.sn1, "Old City Shopping Centre"),
+                    Place(R.drawable.sn2, "Albader Soap Factory\nAlnaser Street Old City beside Alnaser Mosque، Nablus / West Bank"),
+                    Place(R.drawable.sn3, "An-Najah National University Museum\n An-Najah National University، Old Campus Street 7, Nablus")
                 )
                 else -> emptyList()
             }
              "Bethlehem" -> when (category) {
                 "Parks" -> listOf(
-                    Place(R.drawable.logo, "Example Park 1"),
-                    Place(R.drawable.logo, "Example Park 2"),
-                    Place(R.drawable.logo, "Example Park 3")
+                    Place(R.drawable.pb1, "Mary Doty Children's Park\nAddress: Bethlehem, State of Palestine."),
+                    Place(R.drawable.pb2, "Solomon’s Pools\nAddress: Near al‑Khader village, about 3.5km southwest of Bethlehem, State of Palestine."),
+                    Place(R.drawable.pb3, "Herodium National Park\nAddress: Bethlehem Governorate, State of Palestine.")
                 )
                 "Hotels" -> listOf(
-                    Place(R.drawable.logo, "Example Hotel 1"),
-                    Place(R.drawable.logo, "Example Hotel 2"),
-                    Place(R.drawable.logo, "Example Hotel 3")
+                    Place(R.drawable.hb1, "Manger Square Hotel – Betlhehem"),
+                    Place(R.drawable.hb2, "Lotus Boutique Hotel - Betlhehem"),
+                    Place(R.drawable.hb3, "Grand Hotel - Betlhehem")
                 )
                 "Restaurants" -> listOf(
-                    Place(R.drawable.logo, "Example Restaurant 1"),
-                    Place(R.drawable.logo, "Example Restaurant 2"),
-                    Place(R.drawable.logo, "Example Restaurant 3")
+                    Place(R.drawable.rb1, "Afteem Restaurant - Betlhehem"),
+                    Place(R.drawable.rb2, "The Tent Restaurant\nAddress: Beit Sahour (between Shepherd’s Fields and Church of the Nativity), Bethlehem, State of Palestine.")
                 )
                 "Cafes" -> listOf(
-                    Place(R.drawable.logo, "Example Cafe 1"),
-                    Place(R.drawable.logo, "Example Cafe 2"),
-                    Place(R.drawable.logo, "Example Cafe 3")
+                    Place(R.drawable.cb1, "Bonjour Cafe - betlhehem"),
+                    Place(R.drawable.cb2, "Stars & Bucks Cafe - betlhehem"),
+                    Place(R.drawable.cb3, "Singer Cafe - betlhehem")
                 )
                 "Religious Sites" -> listOf(
-                    Place(R.drawable.logo, "Example Site 1"),
-                    Place(R.drawable.logo, "Example Site 2"),
-                    Place(R.drawable.logo, "Example Site 3")
+                    Place(R.drawable.reb1, "Milk Grotto\nAddress: Beit Jala, Bethlehem Governorate"),
+                    Place(R.drawable.sb1, "Beit Jala Castle\nAddress: Beit Jala, Bethlehem Governorate"),
+                    Place(R.drawable.church, "Church of the Nativity\nAddress: Manger Square, Bethlehem")
                 )
                 else -> emptyList()
             }
@@ -193,7 +191,11 @@ class CityActivity : AppCompatActivity() {
                     Place(R.drawable.logo, "Example Cafe 2"),
                     Place(R.drawable.logo, "Example Cafe 3")
                 )
-
+                "Religious Sites" -> listOf(
+                    Place(R.drawable.logo, "Example Religious Site 1"),
+                    Place(R.drawable.logo, "Example Religious Site 2"),
+                    Place(R.drawable.logo, "Example Religious Site 3")
+                )
                 "Special Sites" -> listOf(
                     Place(R.drawable.hesham, "Example Special Site 1"),
                     Place(R.drawable.logo, "Example Special Site 2"),
@@ -208,22 +210,21 @@ class CityActivity : AppCompatActivity() {
                     Place(R.drawable.ph3, "Example Park 3")
                 )
                 "Hotels" -> listOf(
-                    Place(R.drawable.hh1, "Example Hotel 1"),
-                    Place(R.drawable.hh2, "Example Hotel 2"),
-
+                    Place(R.drawable.hh1, "Friends Hostel.Old shalala street, Bab Al_zawiye, Hebron, Palestine, Hebron 4.8"),
+                    Place(R.drawable.hh2, "Queen Plaza Hotel Ain Sarah, Hebron")
                 )
                 "Restaurants" -> listOf(
-                    Place(R.drawable.rech1, "Example Restaurant 1"),
-                    Place(R.drawable.rech2, "Example Restaurant 2"),
-                    Place(R.drawable.rech3, "Example Restaurant 3")
+                    Place(R.drawable.rech1, "Roza restaurant, Hebron, Ain Sarah"),
+                    Place(R.drawable.rech2, "Hawana Restaurant and cafe Ain Sara st, Hebron"),
+                    Place(R.drawable.rech3, "Abu Mazen Restaurant Hebron, Namera Street")
                 )
                 "Cafes" -> listOf(
-                    Place(R.drawable.coff_h, "Example Cafe 1"),
-                    Place(R.drawable.caffh1, "Example Cafe 2"),
-                    Place(R.drawable.caffh2, "Example Cafe 3")
+                    Place(R.drawable.coff_h, "Ain sara street 4.5"),
+                    Place(R.drawable.caffh1, "Ain Sarah, Hebron"),
+                    Place(R.drawable.caffh2, "Issa street, Hebron 4.7")
                 )
                 "Religious Sites" -> listOf(
-                    Place(R.drawable.sh1, "Cave of the Patriarchs / Al Ibrahimi Mosque \n" +
+                    Place(R.drawable.sh1, "Cave of the Patriarchs / Al Ibrahimi Mosque\n" +
                             "Emek Hebron St 770, Hebron"),
                     Place(R.drawable.sh2, "Al-maskobiyya Church Al-jalda, Hebron"),
                     Place(R.drawable.sh3, "Tel Rumeida")
