@@ -1,10 +1,12 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
@@ -19,10 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager3: ViewPager2
     private lateinit var viewPager4: ViewPager2
     private val handler = Handler(Looper.getMainLooper())
-    private var currentPage1 = 0
-    private var currentPage2 = 0
-    private var currentPage3 = 0
-    private var currentPage4 = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +52,19 @@ class MainActivity : AppCompatActivity() {
         }
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (position != 0) {
+                    val selectedCity = parent?.getItemAtPosition(position).toString()
+                    val intent = Intent(this@MainActivity, CityActivity::class.java)
+                    intent.putExtra("CITY_NAME", selectedCity)
+                    startActivity(intent)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
 
         // ViewPager setup
         viewPager1 = findViewById(R.id.viewPager1)
@@ -91,40 +102,28 @@ class MainActivity : AppCompatActivity() {
 
         val runnable1 = object : Runnable {
             override fun run() {
-                if (currentPage1 == imageList1.size) {
-                    currentPage1 = 0
-                }
-                viewPager1.setCurrentItem(currentPage1++, true)
+                viewPager1.currentItem = (viewPager1.currentItem + 1) % imageList1.size
                 handler.postDelayed(this, 5000)
             }
         }
 
         val runnable2 = object : Runnable {
             override fun run() {
-                if (currentPage2 == imageList2.size) {
-                    currentPage2 = 0
-                }
-                viewPager2.setCurrentItem(currentPage2++, true)
+                viewPager2.currentItem = (viewPager2.currentItem + 1) % imageList2.size
                 handler.postDelayed(this, 5000)
             }
         }
 
         val runnable3 = object : Runnable {
             override fun run() {
-                if (currentPage3 == imageList3.size) {
-                    currentPage3 = 0
-                }
-                viewPager3.setCurrentItem(currentPage3++, true)
+                viewPager3.currentItem = (viewPager3.currentItem + 1) % imageList3.size
                 handler.postDelayed(this, 5000)
             }
         }
 
         val runnable4 = object : Runnable {
             override fun run() {
-                if (currentPage4 == imageList4.size) {
-                    currentPage4 = 0
-                }
-                viewPager4.setCurrentItem(currentPage4++, true)
+                viewPager4.currentItem = (viewPager4.currentItem + 1) % imageList4.size
                 handler.postDelayed(this, 5000)
             }
         }
