@@ -8,90 +8,134 @@
     android:background="@drawable/rasha"
     tools:context=".MainActivity">
 
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="#8B0000"
-        android:popupBackground="#8B0000"
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="1053dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to \npalestine"
-        android:textColor="#763038"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/spinner3"
-        app:layout_constraintTop_toTopOf="@id/spinner3"
-        app:layout_constraintBottom_toBottomOf="@id/spinner3"
-        android:layout_marginStart="50dp" />
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toBottomOf="@id/spinner3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:padding="8dp">
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/image_border"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/church" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="Bethlehem\nChurch of the Nativity"
+                android:textColor="#763038" />
+
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="70dp">
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="16dp"
+                android:background="@drawable/image_border"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/heb" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="Hebron\n Glass &amp; Ceramics Shops"
+                android:textColor="#763038" />
+
+            <ImageView
+                android.padding="2dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="70dp">
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="16dp"
+                android:background="@drawable/image_border"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mill" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="Ramallah\nMillennium Hotel"
+                android:textColor="#763038" />
+
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="70dp">
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="16dp"
+                android:background="@drawable/image_border"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tower" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="Nablus\nClock Tower"
+                android:textColor="#763038" />
+
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="70dp">
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="16dp"
+                android:background="@drawable/image_border"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pool" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="Jericho\nElisha Spring Fountain"
+                android:textColor="#763038" />
         </LinearLayout>
     </ScrollView>
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:background="@drawable/rounded_spinner_background"
+        android:popupBackground="@drawable/rounded_spinner_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
