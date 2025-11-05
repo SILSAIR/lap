@@ -21,6 +21,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RegisterPersonalInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -28,6 +34,9 @@
             android:exported="false" />
         <activity
             android:name=".CategoryDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ZoomActivity"
             android:exported="false" />
     </application>
 

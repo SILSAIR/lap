@@ -12,7 +12,7 @@ class LoadingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_loading)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RegisterPersonalInfoActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000) // 2 second delay

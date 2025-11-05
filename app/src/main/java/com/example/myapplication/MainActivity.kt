@@ -16,17 +16,28 @@ import androidx.viewpager2.widget.ViewPager2
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewPager1: ViewPager2
-    private lateinit var viewPager2: ViewPager2
-    private lateinit var viewPager3: ViewPager2
-    private lateinit var viewPager4: ViewPager2
     private val handler = Handler(Looper.getMainLooper())
+    private val scrollRunnables = mutableListOf<Runnable>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Spinner setup
+        setupSpinner()
+        setupViewPagers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startAutoScroll()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopAutoScroll()
+    }
+
+    private fun setupSpinner() {
         val spinner = findViewById<Spinner>(R.id.spinner3)
         val cities = resources.getStringArray(R.array.cityArray).toMutableList()
         cities.add(0, "City")
@@ -65,72 +76,52 @@ class MainActivity : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+    }
 
-        // ViewPager setup
-        viewPager1 = findViewById(R.id.viewPager1)
-        viewPager2 = findViewById(R.id.viewPager2)
-        viewPager3 = findViewById(R.id.viewPager3)
-        viewPager4 = findViewById(R.id.viewPager4)
-
-        val imageList1 = listOf(
-            ImageData(R.drawable.church, "Bethlehem\nChurch of the Nativity"),
-            ImageData(R.drawable.heb, "Hebron\nGlass & Ceramics Shops"),
-            ImageData(R.drawable.mill, "Ramallah\nMillennium Hotel")
+    private fun setupViewPagers() {
+        val viewPagerIds = listOf(R.id.viewPager1, R.id.viewPager2, R.id.viewPager3, R.id.viewPager4)
+        val imageLists = listOf(
+            listOf(
+                ImageData(R.drawable.church, "Bethlehem\nChurch of the Nativity"),
+                ImageData(R.drawable.heb, "Hebron\nGlass & Ceramics Shops"),
+                ImageData(R.drawable.mill, "Ramallah\nMillennium Hotel")
+            ),
+            listOf(
+                ImageData(R.drawable.tower, "Nablus\nClock Tower"),
+                ImageData(R.drawable.pool, "Jericho\nElisha Spring Fountain")
+            ),
+            listOf(
+                ImageData(R.drawable.afteen, "Bethlehem\nAfteen Resturant"),
+                ImageData(R.drawable.sama, "Nablus\nNational park"),
+                ImageData(R.drawable.lazaward, "Ramallah\nlazaward restaurant")
+            ),
+            listOf(
+                ImageData(R.drawable.jasem, "Bethlehem\nPalace Hotel JASEER"),
+                ImageData(R.drawable.hesham, "Nablus\nHesham Palace"),
+                ImageData(R.drawable.tal, "Ramallah\nTeleferik")
+            )
         )
 
-        val imageList2 = listOf(
-            ImageData(R.drawable.tower, "Nablus\nClock Tower"),
-            ImageData(R.drawable.pool, "Jericho\nElisha Spring Fountain")
-        )
+        viewPagerIds.forEachIndexed { index, id ->
+            val viewPager = findViewById<ViewPager2>(id)
+            val imageList = imageLists.getOrNull(index) ?: return@forEachIndexed
+            viewPager.adapter = ImageAdapter(imageList)
 
-        val imageList3 = listOf(
-            ImageData(R.drawable.afteen, "Bethlehem\nAfteen Resturant"),
-            ImageData(R.drawable.sama, "Nablus\nNational park"),
-            ImageData(R.drawable.lazaward, "Ramallah\nlazaward restaurant")
-        )
-
-        val imageList4 = listOf(
-            ImageData(R.drawable.jasem, "Bethlehem\nPalace Hotel JASEER"),
-            ImageData(R.drawable.hesham, "Nablus\nHesham Palace"),
-            ImageData(R.drawable.tal, "Ramallah\nTeleferik")
-        )
-
-        viewPager1.adapter = ImageAdapter(imageList1)
-        viewPager2.adapter = ImageAdapter(imageList2)
-        viewPager3.adapter = ImageAdapter(imageList3)
-        viewPager4.adapter = ImageAdapter(imageList4)
-
-        val runnable1 = object : Runnable {
-            override fun run() {
-                viewPager1.currentItem = (viewPager1.currentItem + 1) % imageList1.size
-                handler.postDelayed(this, 5000)
+            val runnable = object : Runnable {
+                override fun run() {
+                    viewPager.currentItem = (viewPager.currentItem + 1) % imageList.size
+                    handler.postDelayed(this, 5000)
+                }
             }
+            scrollRunnables.add(runnable)
         }
+    }
 
-        val runnable2 = object : Runnable {
-            override fun run() {
-                viewPager2.currentItem = (viewPager2.currentItem + 1) % imageList2.size
-                handler.postDelayed(this, 5000)
-            }
-        }
+    private fun startAutoScroll() {
+        scrollRunnables.forEach { handler.postDelayed(it, 5000) }
+    }
 
-        val runnable3 = object : Runnable {
-            override fun run() {
-                viewPager3.currentItem = (viewPager3.currentItem + 1) % imageList3.size
-                handler.postDelayed(this, 5000)
-            }
-        }
-
-        val runnable4 = object : Runnable {
-            override fun run() {
-                viewPager4.currentItem = (viewPager4.currentItem + 1) % imageList4.size
-                handler.postDelayed(this, 5000)
-            }
-        }
-
-        handler.post(runnable1)
-        handler.post(runnable2)
-        handler.post(runnable3)
-        handler.post(runnable4)
+    private fun stopAutoScroll() {
+        scrollRunnables.forEach { handler.removeCallbacks(it) }
     }
 }
