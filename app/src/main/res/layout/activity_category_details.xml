@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rasha"
+    android:background="@drawable/activity_bg"
     tools:context=".CategoryDetailsActivity">
 
     <ImageButton
@@ -18,13 +18,13 @@
         android:src="?attr/homeAsUpIndicator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="#763038" />
+        app:tint="@color/textColor" />
 
     <TextView
         android:id="@+id/categoryTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#763038"
+        android:textColor="@color/textColor"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/backButton"

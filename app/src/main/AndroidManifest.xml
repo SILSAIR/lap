@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterPersonalInfoActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -37,6 +37,9 @@
             android:exported="false" />
         <activity
             android:name=".ZoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
             android:exported="false" />
     </application>
 

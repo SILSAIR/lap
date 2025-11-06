@@ -5,31 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rasha"
+    android:background="@drawable/activity_bg"
     tools:context=".MainActivity">
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:background="#8B0000"
-        android:popupBackground="#8B0000"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@drawable/spinner_popup_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
         android:layout_marginStart="16dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/welcomeTextView"
+        android:layout_width="98dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
         android:text="Welcome to \npalestine"
-        android:textColor="#763038"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/spinner3"
         app:layout_constraintStart_toEndOf="@id/spinner3"
         app:layout_constraintTop_toTopOf="@id/spinner3"
-        app:layout_constraintBottom_toBottomOf="@id/spinner3"
-        android:layout_marginStart="50dp" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Settings"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/welcomeTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toEndOf="@id/welcomeTextView"
+        app:layout_constraintTop_toTopOf="@id/welcomeTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
         android:layout_width="0dp"

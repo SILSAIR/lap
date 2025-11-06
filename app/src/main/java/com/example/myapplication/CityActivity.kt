@@ -16,6 +16,7 @@ class CityActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ThemeManager.applyTheme(this)
         setContentView(R.layout.activity_city)
 
         val backButton = findViewById<ImageButton>(R.id.backButton)

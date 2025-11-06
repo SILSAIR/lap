@@ -9,6 +9,7 @@ class CategoryDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ThemeManager.applyTheme(this)
         setContentView(R.layout.activity_category_details)
 
         val backButton = findViewById<ImageButton>(R.id.backButton)

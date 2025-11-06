@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +23,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ThemeManager.applyTheme(this)
         setContentView(R.layout.activity_main)
+
+        val settingsButton = findViewById<Button>(R.id.settingsButton)
+        settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
 
         setupSpinner()
         setupViewPagers()
@@ -49,14 +58,30 @@ class MainActivity : AppCompatActivity() {
 
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent) as TextView
-                view.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+                if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+                    view.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                } else {
+                    view.setTextColor(ContextCompat.getColor(context, android.R.color.black))
+                }
                 return view
             }
 
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
-                if (position == 0) {
-                    view.setTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
+                val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+                if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+                    if (position == 0) {
+                        view.setTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
+                    } else {
+                        view.setTextColor(ContextCompat.getColor(context, android.R.color.white))
+                    }
+                } else {
+                    if (position == 0) {
+                        view.setTextColor(ContextCompat.getColor(context, android.R.color.darker_gray))
+                    } else {
+                        view.setTextColor(ContextCompat.getColor(context, android.R.color.black))
+                    }
                 }
                 return view
             }
