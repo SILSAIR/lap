@@ -64,4 +64,38 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return null
     }
+
+    fun getUserById(userId: Long): User? {
+        val db = this.readableDatabase
+        val cursor: Cursor = db.query(
+            TABLE_USER,
+            arrayOf(KEY_ID, KEY_USERNAME, KEY_PASSWORD),
+            "$KEY_ID = ?",
+            arrayOf(userId.toString()),
+            null, null, null
+        )
+        if (cursor.moveToFirst()) {
+            val user = User(
+                id = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_ID)),
+                username = cursor.getString(cursor.getColumnIndexOrThrow(KEY_USERNAME)),
+                password = cursor.getString(cursor.getColumnIndexOrThrow(KEY_PASSWORD))
+            )
+            cursor.close()
+            db.close()
+            return user
+        }
+        cursor.close()
+        db.close()
+        return null
+    }
+
+    fun updateUser(userId: Long, username: String, password: String): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_USERNAME, username)
+        contentValues.put(KEY_PASSWORD, password)
+        val success = db.update(TABLE_USER, contentValues, "$KEY_ID = ?", arrayOf(userId.toString()))
+        db.close()
+        return success
+    }
 }
