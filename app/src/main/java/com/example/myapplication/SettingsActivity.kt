@@ -21,9 +21,11 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var databaseHelper: DatabaseHelper
     private var userId: Long = -1
     private lateinit var profileImageView: ImageView
+    private var imageUri: Uri? = null
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
+        private const val KEY_IMAGE_URI = "image_uri"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,14 +43,24 @@ class SettingsActivity : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val saveChangesButton = findViewById<Button>(R.id.saveChangesButton)
 
+        if (savedInstanceState != null) {
+            val savedUri = savedInstanceState.getString(KEY_IMAGE_URI)
+            if (savedUri != null) {
+                imageUri = Uri.parse(savedUri)
+                profileImageView.setImageURI(imageUri)
+            }
+        }
+
         if (userId != -1L) {
             profileContainer.visibility = View.VISIBLE
             guestMessageTextView.visibility = View.GONE
 
-            val user = databaseHelper.getUserById(userId)
-            user?.let {
-                usernameEditText.setText(it.username)
-                passwordEditText.setText(it.password)
+            if (savedInstanceState == null) {
+                val user = databaseHelper.getUserById(userId)
+                user?.let {
+                    usernameEditText.setText(it.username)
+                    passwordEditText.setText(it.password)
+                }
             }
 
             profileImageView.setOnClickListener {
@@ -100,8 +112,15 @@ class SettingsActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            val imageUri: Uri = data.data!!
+            imageUri = data.data!!
             profileImageView.setImageURI(imageUri)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (imageUri != null) {
+            outState.putString(KEY_IMAGE_URI, imageUri.toString())
         }
     }
 }
