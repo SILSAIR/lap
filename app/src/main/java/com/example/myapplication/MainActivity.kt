@@ -20,15 +20,19 @@ class MainActivity : AppCompatActivity() {
 
     private val handler = Handler(Looper.getMainLooper())
     private val scrollRunnables = mutableListOf<Runnable>()
+    private var userId: Long = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ThemeManager.applyTheme(this)
         setContentView(R.layout.activity_main)
 
+        userId = intent.getLongExtra("USER_ID", -1)
+
         val settingsButton = findViewById<Button>(R.id.settingsButton)
         settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
 
