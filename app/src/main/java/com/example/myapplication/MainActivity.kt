@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         userId = intent.getLongExtra("USER_ID", -1)
 
-        val settingsButton = findViewById<Button>(R.id.settingsButton)
-        settingsButton.setOnClickListener {
+        val settingsImageButton = findViewById<ImageButton>(R.id.settingsImageButton)
+        settingsImageButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             intent.putExtra("USER_ID", userId)
             startActivity(intent)

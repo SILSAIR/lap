@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
 
 object ThemeManager {
     private const val PREF_NAME = "ThemePrefs"
@@ -18,7 +19,9 @@ object ThemeManager {
     }
 
     fun setTheme(context: Context, theme: Int) {
-        getPreferences(context).edit().putString(KEY_THEME, theme.toString()).apply()
+        getPreferences(context).edit {
+            putString(KEY_THEME, theme.toString())
+        }
         AppCompatDelegate.setDefaultNightMode(theme)
     }
 }
