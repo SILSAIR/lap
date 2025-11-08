@@ -13,6 +13,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Calendar
+import android.net.Uri
+import android.content.ActivityNotFoundException
 
 data class Place(
     val imageRes: Int,
@@ -40,6 +42,7 @@ class PlaceAdapter(private val places: List<Place>, private val category: String
         private val nameTextView: TextView = itemView.findViewById(R.id.placeNameTextView)
         private val detailsTextView: TextView = itemView.findViewById(R.id.placeDetailsTextView)
         private val bookButton: Button = itemView.findViewById(R.id.bookButton)
+        private val mapButton: Button = itemView.findViewById(R.id.mapButton)
 
         fun bind(place: Place, category: String) {
             imageView.setImageResource(place.imageRes)
@@ -51,6 +54,24 @@ class PlaceAdapter(private val places: List<Place>, private val category: String
                 val intent = Intent(context, ZoomActivity::class.java)
                 intent.putExtra("IMAGE_RES", place.imageRes)
                 context.startActivity(intent)
+            }
+
+            mapButton.setOnClickListener { 
+                val context = it.context
+                val gmmIntentUri = Uri.parse("geo:${place.coordinates}?q=${place.coordinates}(${Uri.encode(place.name)})")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                mapIntent.setPackage("com.google.android.apps.maps")
+                try {
+                    context.startActivity(mapIntent)
+                } catch (e: ActivityNotFoundException) {
+                    // If Google Maps is not installed, try a generic intent.
+                    val genericMapIntent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:${place.coordinates}?q=${Uri.encode(place.name)}"))
+                    try {
+                        context.startActivity(genericMapIntent)
+                    } catch (e2: ActivityNotFoundException) {
+                        Toast.makeText(context, "No map application found to handle this request.", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
 
             when (category) {
