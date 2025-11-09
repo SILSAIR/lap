@@ -10,7 +10,7 @@
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@drawable/spinner_background"
         android:popupBackground="@drawable/spinner_popup_background"
@@ -21,15 +21,16 @@
 
     <ImageButton
         android:id="@+id/settingsImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_menu_red"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="24dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_menu_red"
         app:layout_constraintBottom_toBottomOf="@id/spinner3"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/spinner3"
-        app:layout_constraintDimensionRatio="1:1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ScrollView
         android:layout_width="0dp"

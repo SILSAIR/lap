@@ -38,6 +38,9 @@ class SettingsActivity : AppCompatActivity() {
 
         val profileContainer = findViewById<LinearLayout>(R.id.profileContainer)
         val guestMessageTextView = findViewById<TextView>(R.id.guestMessageTextView)
+        val guestButtonsContainer = findViewById<LinearLayout>(R.id.guestButtonsContainer)
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val registerButton = findViewById<Button>(R.id.registerButton)
         profileImageView = findViewById(R.id.profileImageView)
         val usernameEditText = findViewById<EditText>(R.id.usernameEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
@@ -54,6 +57,7 @@ class SettingsActivity : AppCompatActivity() {
         if (userId != -1L) {
             profileContainer.visibility = View.VISIBLE
             guestMessageTextView.visibility = View.GONE
+            guestButtonsContainer.visibility = View.GONE
 
             if (savedInstanceState == null) {
                 val user = databaseHelper.getUserById(userId)
@@ -86,6 +90,17 @@ class SettingsActivity : AppCompatActivity() {
         } else {
             profileContainer.visibility = View.GONE
             guestMessageTextView.visibility = View.VISIBLE
+            guestButtonsContainer.visibility = View.VISIBLE
+
+            loginButton.setOnClickListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
+            registerButton.setOnClickListener {
+                val intent = Intent(this, RegisterActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         val darkModeSwitch = findViewById<Switch>(R.id.darkModeSwitch)

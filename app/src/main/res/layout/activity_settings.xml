@@ -66,23 +66,48 @@
 
     <!-- Guest Message -->
 
-    <!-- Controls -->
     <TextView
         android:id="@+id/guestMessageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
         android:text="You need to log in to see your profile"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/darkModeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618"
         tools:visibility="visible" />
 
+    <LinearLayout
+        android:id="@+id/guestButtonsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/guestMessageTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"/>
+    </LinearLayout>
+
+    <!-- Controls -->
     <TextView
         android:id="@+id/darkModeTextView"
         android:layout_width="wrap_content"
@@ -101,8 +126,8 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.Switch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/darkModeTextView"
-        app:layout_constraintBottom_toBottomOf="@id/darkModeTextView"
+        app:layout_constraintTop_toTopOf="@+id/darkModeTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/darkModeTextView"
         android:layout_marginEnd="32dp"/>
 
     <Button
